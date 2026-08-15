@@ -1,0 +1,2 @@
+system:index,average_ndvi,dense_vegetation_area_sq_m,dense_vegetation_percent,green_cover_percent,low_vegetation_area_sq_m,low_vegetation_percent,moderate_vegetation_area_sq_m,moderate_vegetation_percent,study_area,total_area_hectares,total_area_sq_m,vegetation_area_sq_m,.geo
+0,0.3709466584309397,369670.4574064368,37.22482316840511,67.42677591530125,323476.58421687706,32.57322408469875,299928.0785298367,30.20195274689616,Thapar Campus,99.30751201531504,993075.1201531504,669598.5359362734,"{""type"":""MultiPoint"",""coordinates"":[]}"
