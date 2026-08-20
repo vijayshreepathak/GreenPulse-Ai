@@ -10,9 +10,10 @@ from .data_loader import (
     records_from_df,
     write_json,
 )
-from .external_apis import get_cached_or_default_aqi_stress, get_recent_open_meteo
+from .external_apis import get_cached_or_default_aqi_stress, get_environment_data, get_recent_open_meteo
 from .schemas import HealthResponse, StatusResponse
 from .scoring import build_priority_table
+from .spatial import cell_feature_collection, cell_history_records, spatial_summary
 
 app = FastAPI(title=PROJECT_NAME, version="0.1.0")
 
@@ -86,6 +87,36 @@ def aqi_open_meteo_recent(
     return get_recent_open_meteo(start_date=start_date, end_date=end_date)
 
 
+@app.get("/api/environment/current")
+def environment_current(refresh: bool = Query(default=False)) -> dict:
+    return get_environment_data(history_hours=168, force_refresh=refresh)
+
+
+@app.get("/api/environment/air-quality/history")
+def environment_air_quality_history(
+    hours: int = Query(default=168, ge=24, le=168),
+    refresh: bool = Query(default=False),
+) -> dict:
+    return get_environment_data(history_hours=hours, force_refresh=refresh)
+
+
+@app.get("/api/spatial/cells")
+def spatial_cells() -> dict:
+    payload = cell_feature_collection()
+    if not payload["available"]:
+        payload["message"] = "Optional 50 m spatial cell dataset is not available."
+    return payload
+
+
+@app.get("/api/spatial/cells/history")
+def spatial_cell_history(
+    cell_id: str | None = Query(default=None),
+    zone_id: str | None = Query(default=None),
+) -> dict:
+    records = cell_history_records(cell_id=cell_id, zone_id=zone_id)
+    return {"count": len(records), "records": records}
+
+
 @app.get("/priority")
 def priority() -> list[dict]:
     try:
@@ -117,7 +148,8 @@ def dashboard() -> dict:
 
     summary_payload = safe_load("Campus summary", lambda: first_row_from_df(load_required_dataset("summary")), {})
     historical_payload = safe_load("Historical NDVI", lambda: records_from_df(load_required_dataset("historical_ndvi")), [])
-    recent_aqi_payload = safe_load("Recent AQI", lambda: get_recent_open_meteo(), {})
+    recent_aqi_payload = safe_load("Recent AQI", lambda: get_environment_data(), {})
+    spatial_payload = safe_load("50 m spatial analysis", spatial_summary, {})
 
     def load_priority():
         aqi_stress = recent_aqi_payload.get("stress_score") if isinstance(recent_aqi_payload, dict) else None
@@ -137,6 +169,7 @@ def dashboard() -> dict:
         "priority": priority_payload,
         "historical_ndvi": historical_payload,
         "recent_aqi": recent_aqi_payload,
+        "spatial_analysis": spatial_payload,
         "notes": notes,
     }
     write_json(PROCESSED_DASHBOARD_FILE, payload)

@@ -1,48 +1,40 @@
 # GreenPulse AI
 
-GreenPulse AI is a campus-scale environmental intelligence dashboard for Thapar Institute of Engineering and Technology. This MVP converts already-exported Google Earth Engine CSVs and recent modeled PM data into a simple, explainable dashboard for vegetation health and zone-level environmental priority.
+GreenPulse AI is a campus-scale environmental intelligence product for Thapar Institute of Engineering and Technology. It converts satellite vegetation, GIS land-cover, historical change, 50 m spatial features, and modeled air-quality context into explainable environmental intervention priorities.
 
-## MVP Scope
+## Product Capabilities
 
-Included:
+- Compact campus overview with six live/data-derived metrics
+- Five-zone explainable environmental priority ranking
+- 447 usable 50 m spatial analysis cells
+- Interactive layers for priority, NDVI, green cover, built-up pressure, tree cover, NDBI, NDWI, plantable potential, and historical NDVI decline
+- Zone and cell detail panels with transparent score contributors
+- Sentinel-2 zone/cell trends for 2018-2025
+- Separate Landsat long-term context for 2014-2025
+- Live modeled PM2.5 / PM10 context with 24H, 48H, and 7D views
+- Last-good Open-Meteo cache and 12-minute frontend refresh
+- Deterministic insights and a source/limitations methodology view
 
-- FastAPI backend with CSV-first local data loading
-- React + Vite frontend
-- Recharts visualizations
-- React Leaflet campus zone map when `thapar_zones.geojson` is available
-- Open-Meteo modeled PM2.5 / PM10 fetch with CSV cache fallback
-- Explainable rule-based environmental priority scoring
+No ML, local sensor, drone, or plant-species module is represented as implemented.
 
-Excluded for this MVP:
-
-- ML or deep learning
-- ESP32 sensor ingestion
-- Drone upload or validation workflow
-- Plant species recommendation
-- PostgreSQL/PostGIS
-- Authentication
-- Direct browser GeoTIFF rendering
-- Complex deployment scripts
-
-## Repository Structure
+## Architecture
 
 ```text
-backend/
-frontend/
-data/
-docs/
-README.md
+greenpulse_ai/
+  backend/                 FastAPI API, scoring, processing, provider cache
+  frontend/                React + Vite product interface
+  data/                    Project data guidance
+  docs/                    Project context and source documentation
+  README.md
 ```
+
+The frontend uses React, React Leaflet, Recharts, Framer Motion, Lucide icons, and plain CSS. The backend uses FastAPI, pandas, NumPy, and requests.
 
 ## Dataset Placement
 
-Place required CSV files in:
+Place the tabular exports in `backend/data/raw/`.
 
-```text
-backend/data/raw/
-```
-
-Required:
+Required campus and zone files:
 
 ```text
 thapar_campus_summary.csv
@@ -51,54 +43,55 @@ thapar_zone_land_cover.csv
 thapar_historical_zone_ndvi_2018_2025.csv
 ```
 
-Optional:
+Enhanced spatial and historical files:
 
 ```text
+thapar_50m_master_current_2025.csv
+thapar_50m_historical_ndvi_2018_2025.csv
 thapar_landsat_historical_zone_ndvi_2014_2025.csv
+```
+
+Optional OpenAQ reference export:
+
+```text
 openaq_location_5544_measurements.csv
 ```
 
-Place the optional GeoJSON map file in:
+Place the five-zone map at `frontend/public/thapar_zones.geojson`. If it is missing, the frontend keeps tables and charts available and shows the required fallback message.
 
-```text
-frontend/public/thapar_zones.geojson
-```
+## Run Locally
 
-If the GeoJSON is missing, the frontend shows a map fallback and keeps the priority table and charts available.
+Backend:
 
-## Run Backend
-
-```bash
+```powershell
 cd backend
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-Backend URL:
+Frontend:
 
-```text
-http://localhost:8000
-```
-
-## Run Frontend
-
-```bash
+```powershell
 cd frontend
 npm install
-npm run dev
+npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
-Frontend URL:
+Open:
 
 ```text
-http://localhost:5173
+Frontend: http://127.0.0.1:5173
+Backend API: http://127.0.0.1:8000
+API docs: http://127.0.0.1:8000/docs
 ```
 
-Set `VITE_API_BASE_URL` if the backend runs somewhere other than `http://localhost:8000`.
+Set `VITE_API_BASE_URL` when the API is not running at `http://localhost:8000`.
 
 ## API Endpoints
+
+Core:
 
 ```text
 GET /
@@ -108,60 +101,52 @@ GET /zones/ndvi
 GET /zones/land-cover
 GET /zones/historical-ndvi
 GET /zones/landsat-history
-GET /aqi/open-meteo/recent
 GET /priority
 GET /dashboard
 ```
 
-Processed outputs are written to:
+Spatial intelligence:
 
 ```text
-backend/data/processed/
+GET /api/spatial/cells
+GET /api/spatial/cells/history?cell_id=C_12613%2C67168
+GET /api/spatial/cells/history?zone_id=Z01
 ```
 
-Generated files:
+Live modeled environment:
 
 ```text
-zone_environmental_priority.csv
-open_meteo_recent_hourly.csv
-dashboard_summary.json
+GET /api/environment/current
+GET /api/environment/current?refresh=true
+GET /api/environment/air-quality/history?hours=24
+GET /api/environment/air-quality/history?hours=48
+GET /api/environment/air-quality/history?hours=168
+GET /aqi/open-meteo/recent
 ```
 
-## Scoring Formula
+Open-Meteo responses expose `data_mode`, `freshness`, `last_updated`, current PM values, 24-hour averages, PM stress, and hourly records. Successful provider responses are saved as the last-good cache. Provider failure serves cached values without claiming they are live measurements.
+
+## Priority Formula
 
 ```text
 Low Green Cover Score = 100 - green_cover_percent
 Tree Gap Score = 100 - tree_percent
 Built-up Pressure Score = built_up_percent
 NDVI Change = latest_year_mean_ndvi - first_year_mean_ndvi
+NDVI Decline Score = min(abs(ndvi_change) / 0.10 * 100, 100), only when change < 0
 ```
 
-If NDVI declines:
-
-```text
-NDVI Decline Score = min(abs(ndvi_change) / 0.10 * 100, 100)
-```
-
-Otherwise:
-
-```text
-NDVI Decline Score = 0
-```
-
-AQI stress uses the last 24 available Open-Meteo hourly PM records:
+The last 24 modeled hourly PM records produce:
 
 ```text
 pm25_score = min((pm25_avg / 60) * 100, 100)
 pm10_score = min((pm10_avg / 100) * 100, 100)
-AQI Stress Score = 0.6 * pm25_score + 0.4 * pm10_score
+AQI Stress = 0.6 * pm25_score + 0.4 * pm10_score
 ```
 
-If no AQI data exists, AQI stress defaults to `60`.
-
-Final score:
+Final zone score:
 
 ```text
-Environmental Priority Score =
 0.35 * Low Green Cover Score
 + 0.25 * NDVI Decline Score
 + 0.20 * Built-up Pressure Score
@@ -169,31 +154,34 @@ Environmental Priority Score =
 + 0.10 * AQI Stress Score
 ```
 
-Priority classes:
+Classes: `Low` 0-30, `Moderate` 31-50, `High` 51-70, and `Urgent` 71-100.
+
+## Generated Outputs
+
+Runtime outputs are written to `backend/data/processed/`:
 
 ```text
-0-30 = Low
-31-50 = Moderate
-51-70 = High
-71-100 = Urgent
+zone_environmental_priority.csv
+open_meteo_recent_hourly.csv
+open_meteo_last_good.json
+dashboard_summary.json
 ```
 
-## Known Limitations
+They are intentionally ignored by Git except for folder documentation.
+
+## Scientific Limitations
 
 - NDVI thresholds are project-calibrated, not universal ecological classifications.
-- Dynamic World land-cover values are zone-level indicators, not building-level ground truth.
-- Open-Meteo PM2.5 / PM10 values are modeled estimates near the campus coordinates, not direct campus sensor readings.
-- OpenAQ short-range data should not be used for long-term trend or causality.
-- The priority score is explainable and rule-based, not ML-derived.
+- Dynamic World is a supporting land-cover classification, not building-level ground truth.
+- Open-Meteo / CAMS values are modeled regional context near one campus coordinate, not campus sensor or zone-level measurements.
+- Sentinel-2 and Landsat have different spatial characteristics and are shown as separate series.
+- Cell-level satellite features are available, but the formal priority score remains zone-level until a validated cell scoring method is approved.
+- Priority logic is transparent and rule-based; no causal relationship between vegetation and air quality is claimed.
 
-## Future Scope
+## Future Validation Layers
 
-- 50m x 50m grid-cell dataset
-- K-Means clustering of environmental patterns
-- Random Forest priority classification after suitable training data exists
-- ESP32 PM2.5 / PM10 sensor node
-- Drone or phone-image validation
-- Plant species recommendation
-- PostGIS database
-- GeoTIFF tile rendering
-- Render/Vercel deployment
+- Local PM sensor validation
+- Field and drone validation workflows
+- Reviewed cell-level intervention scoring
+- ML only after suitable labeled training data exists
+- PostGIS and production deployment architecture

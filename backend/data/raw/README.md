@@ -16,4 +16,6 @@ Optional:
 ```text
 thapar_landsat_historical_zone_ndvi_2014_2025.csv
 openaq_location_5544_measurements.csv
+thapar_50m_master_current_2025.csv
+thapar_50m_historical_ndvi_2018_2025.csv
 ```
