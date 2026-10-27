@@ -1,0 +1,628 @@
+{
+ "priority": [
+  {
+   "rank": 1,
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "zone_area_hectares": 24.97082674644344,
+   "mean_ndvi": 0.3577535162111389,
+   "vegetation_status": "Moderate vegetation",
+   "green_cover_percent": 68.21065251455308,
+   "tree_percent": 4.478781301673301,
+   "grass_percent": 3.933598369728477,
+   "built_up_percent": 73.40335418081831,
+   "bare_land_percent": 0.0,
+   "potential_plantable_percent": 3.933598369728477,
+   "first_year": 2018,
+   "latest_year": 2025,
+   "first_year_mean_ndvi": 0.4434,
+   "latest_year_mean_ndvi": 0.3551,
+   "ndvi_change": -0.0883,
+   "low_green_cover_score": 31.7893,
+   "ndvi_decline_score": 88.3,
+   "built_up_pressure_score": 73.4034,
+   "tree_gap_score": 95.5212,
+   "pm_stress_score": 60.0,
+   "aqi_stress_score": 60.0,
+   "pm_stress_source": "fallback",
+   "contribution_low_green_cover": 11.1263,
+   "contribution_ndvi_decline": 22.075,
+   "contribution_built_up_pressure": 14.6807,
+   "contribution_tree_gap": 9.5521,
+   "contribution_pm_stress": 6.0,
+   "priority_score": 63.43,
+   "priority_class": "High",
+   "score_status": "ok",
+   "missing_inputs": [],
+   "reason": "Priority is driven by declining NDVI trend, and high built-up pressure."
+  },
+  {
+   "rank": 2,
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "zone_area_hectares": 16.664098085605616,
+   "mean_ndvi": 0.3181567674657478,
+   "vegetation_status": "Moderate vegetation",
+   "green_cover_percent": 53.09495435899932,
+   "tree_percent": 2.839591744086127,
+   "grass_percent": 0.0,
+   "built_up_percent": 97.16040825591388,
+   "bare_land_percent": 0.0,
+   "potential_plantable_percent": 0.0,
+   "first_year": 2018,
+   "latest_year": 2025,
+   "first_year_mean_ndvi": 0.354,
+   "latest_year_mean_ndvi": 0.3158,
+   "ndvi_change": -0.0382,
+   "low_green_cover_score": 46.905,
+   "ndvi_decline_score": 38.2,
+   "built_up_pressure_score": 97.1604,
+   "tree_gap_score": 97.1604,
+   "pm_stress_score": 60.0,
+   "aqi_stress_score": 60.0,
+   "pm_stress_source": "fallback",
+   "contribution_low_green_cover": 16.4168,
+   "contribution_ndvi_decline": 9.55,
+   "contribution_built_up_pressure": 19.4321,
+   "contribution_tree_gap": 9.716,
+   "contribution_pm_stress": 6.0,
+   "priority_score": 61.11,
+   "priority_class": "High",
+   "score_status": "ok",
+   "missing_inputs": [],
+   "reason": "Priority is driven by low green-cover percentage, and high built-up pressure."
+  },
+  {
+   "rank": 3,
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "zone_area_hectares": 14.034950156415361,
+   "mean_ndvi": 0.2914826136163337,
+   "vegetation_status": "Moderate vegetation",
+   "green_cover_percent": 51.35738165783727,
+   "tree_percent": 1.3902360946304064,
+   "grass_percent": 0.0,
+   "built_up_percent": 98.6097639053696,
+   "bare_land_percent": 0.0,
+   "potential_plantable_percent": 0.0,
+   "first_year": 2018,
+   "latest_year": 2025,
+   "first_year_mean_ndvi": 0.292,
+   "latest_year_mean_ndvi": 0.2884,
+   "ndvi_change": -0.0036,
+   "low_green_cover_score": 48.6426,
+   "ndvi_decline_score": 3.6,
+   "built_up_pressure_score": 98.6098,
+   "tree_gap_score": 98.6098,
+   "pm_stress_score": 60.0,
+   "aqi_stress_score": 60.0,
+   "pm_stress_source": "fallback",
+   "contribution_low_green_cover": 17.0249,
+   "contribution_ndvi_decline": 0.9,
+   "contribution_built_up_pressure": 19.722,
+   "contribution_tree_gap": 9.861,
+   "contribution_pm_stress": 6.0,
+   "priority_score": 53.51,
+   "priority_class": "High",
+   "score_status": "ok",
+   "missing_inputs": [],
+   "reason": "Priority is driven by low green-cover percentage, and high built-up pressure."
+  },
+  {
+   "rank": 4,
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "zone_area_hectares": 21.888202799689314,
+   "mean_ndvi": 0.39839535800489145,
+   "vegetation_status": "Moderate vegetation",
+   "green_cover_percent": 70.14601667922273,
+   "tree_percent": 24.222927975521042,
+   "grass_percent": 0.0,
+   "built_up_percent": 75.77707202447888,
+   "bare_land_percent": 0.0,
+   "potential_plantable_percent": 0.0,
+   "first_year": 2018,
+   "latest_year": 2025,
+   "first_year_mean_ndvi": 0.4459,
+   "latest_year_mean_ndvi": 0.3957,
+   "ndvi_change": -0.0502,
+   "low_green_cover_score": 29.854,
+   "ndvi_decline_score": 50.2,
+   "built_up_pressure_score": 75.7771,
+   "tree_gap_score": 75.7771,
+   "pm_stress_score": 60.0,
+   "aqi_stress_score": 60.0,
+   "pm_stress_source": "fallback",
+   "contribution_low_green_cover": 10.4489,
+   "contribution_ndvi_decline": 12.55,
+   "contribution_built_up_pressure": 15.1554,
+   "contribution_tree_gap": 7.5777,
+   "contribution_pm_stress": 6.0,
+   "priority_score": 51.73,
+   "priority_class": "High",
+   "score_status": "ok",
+   "missing_inputs": [],
+   "reason": "Priority is driven by declining NDVI trend, and high built-up pressure."
+  },
+  {
+   "rank": 5,
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "zone_area_hectares": 20.55527923208734,
+   "mean_ndvi": 0.4538153227001502,
+   "vegetation_status": "Dense vegetation",
+   "green_cover_percent": 85.64773691794478,
+   "tree_percent": 8.271977786989336,
+   "grass_percent": 0.0,
+   "built_up_percent": 91.53309909660948,
+   "bare_land_percent": 0.0,
+   "potential_plantable_percent": 0.0,
+   "first_year": 2018,
+   "latest_year": 2025,
+   "first_year_mean_ndvi": 0.4287,
+   "latest_year_mean_ndvi": 0.4505,
+   "ndvi_change": 0.0218,
+   "low_green_cover_score": 14.3523,
+   "ndvi_decline_score": 0.0,
+   "built_up_pressure_score": 91.5331,
+   "tree_gap_score": 91.728,
+   "pm_stress_score": 60.0,
+   "aqi_stress_score": 60.0,
+   "pm_stress_source": "fallback",
+   "contribution_low_green_cover": 5.0233,
+   "contribution_ndvi_decline": 0.0,
+   "contribution_built_up_pressure": 18.3066,
+   "contribution_tree_gap": 9.1728,
+   "contribution_pm_stress": 6.0,
+   "priority_score": 38.5,
+   "priority_class": "Moderate",
+   "score_status": "ok",
+   "missing_inputs": [],
+   "reason": "Priority is driven by high built-up pressure."
+  }
+ ],
+ "scoring": {
+  "method": "Transparent rule-based weighted score (not machine learning).",
+  "level": "zone",
+  "weights": {
+   "low_green_cover": 0.35,
+   "ndvi_decline": 0.25,
+   "built_up_pressure": 0.2,
+   "tree_gap": 0.1,
+   "pm_stress": 0.1
+  },
+  "factors": [
+   {
+    "key": "low_green_cover",
+    "score_field": "low_green_cover_score",
+    "label": "Low green cover",
+    "weight": 0.35
+   },
+   {
+    "key": "ndvi_decline",
+    "score_field": "ndvi_decline_score",
+    "label": "NDVI decline",
+    "weight": 0.25
+   },
+   {
+    "key": "built_up_pressure",
+    "score_field": "built_up_pressure_score",
+    "label": "Built-up pressure",
+    "weight": 0.2
+   },
+   {
+    "key": "tree_gap",
+    "score_field": "tree_gap_score",
+    "label": "Tree gap",
+    "weight": 0.1
+   },
+   {
+    "key": "pm_stress",
+    "score_field": "pm_stress_score",
+    "label": "Regional PM stress",
+    "weight": 0.1
+   }
+  ],
+  "formulas": {
+   "low_green_cover": "100 - green_cover_percent",
+   "ndvi_decline": "0 if NDVI change >= 0, else min(|change| / 0.1 * 100, 100)",
+   "built_up_pressure": "built_up_percent",
+   "tree_gap": "100 - tree_percent",
+   "pm_stress": "0.6 * min(PM2.5 avg / 60 * 100, 100) + 0.4 * min(PM10 avg / 100 * 100, 100)"
+  },
+  "pm": {
+   "averaging_records": 24,
+   "pm25_full_scale": 60.0,
+   "pm10_full_scale": 100.0,
+   "pm25_weight": 0.6,
+   "pm10_weight": 0.4,
+   "fallback_score": 60.0
+  },
+  "ndvi_decline_full_scale": 0.1,
+  "classes": [
+   {
+    "label": "Low",
+    "min": 0,
+    "max": 30
+   },
+   {
+    "label": "Moderate",
+    "min": 30,
+    "max": 50
+   },
+   {
+    "label": "High",
+    "min": 50,
+    "max": 70
+   },
+   {
+    "label": "Urgent",
+    "min": 70,
+    "max": 100
+   }
+  ],
+  "class_rule": "Upper bounds are inclusive: score <= 30 Low, <= 50 Moderate, <= 70 High, otherwise Urgent."
+ },
+ "historical": [
+  {
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "year": 2018.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.44335167632469263,
+   "green_cover_percent": 82.92477314490309,
+   "image_count": 23
+  },
+  {
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "year": 2018.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.4287288208080501,
+   "green_cover_percent": 86.96400255291711,
+   "image_count": 23
+  },
+  {
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "year": 2018.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.29199948789059343,
+   "green_cover_percent": 55.03419027653086,
+   "image_count": 23
+  },
+  {
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "year": 2018.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.4458948328125469,
+   "green_cover_percent": 81.91104105143143,
+   "image_count": 23
+  },
+  {
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "year": 2018.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3539596592080779,
+   "green_cover_percent": 66.0483243348412,
+   "image_count": 23
+  },
+  {
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "year": 2019.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.43781139000698754,
+   "green_cover_percent": 76.09841708862301,
+   "image_count": 19
+  },
+  {
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "year": 2019.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.46064027398209473,
+   "green_cover_percent": 90.91641828362384,
+   "image_count": 19
+  },
+  {
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "year": 2019.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3171552905269586,
+   "green_cover_percent": 63.432650811492564,
+   "image_count": 19
+  },
+  {
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "year": 2019.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.44929708207438424,
+   "green_cover_percent": 82.75629492925016,
+   "image_count": 19
+  },
+  {
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "year": 2019.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.35737442841750294,
+   "green_cover_percent": 69.85383530327354,
+   "image_count": 19
+  },
+  {
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "year": 2020.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.4597163353996878,
+   "green_cover_percent": 84.94312723100114,
+   "image_count": 30
+  },
+  {
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "year": 2020.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.4538339344751134,
+   "green_cover_percent": 90.29644762901114,
+   "image_count": 30
+  },
+  {
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "year": 2020.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3335536673585261,
+   "green_cover_percent": 65.89540976583092,
+   "image_count": 30
+  },
+  {
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "year": 2020.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.47450244227477195,
+   "green_cover_percent": 86.30824849597711,
+   "image_count": 30
+  },
+  {
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "year": 2020.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3761524911055475,
+   "green_cover_percent": 70.03826385848858,
+   "image_count": 30
+  },
+  {
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "year": 2021.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.4422011008902152,
+   "green_cover_percent": 82.2444108262586,
+   "image_count": 31
+  },
+  {
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "year": 2021.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.42031462197421793,
+   "green_cover_percent": 87.64006500727058,
+   "image_count": 31
+  },
+  {
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "year": 2021.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3217310271264398,
+   "green_cover_percent": 65.39549280451732,
+   "image_count": 31
+  },
+  {
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "year": 2021.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.4015682104983163,
+   "green_cover_percent": 79.11059614840204,
+   "image_count": 31
+  },
+  {
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "year": 2021.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.35723910199599557,
+   "green_cover_percent": 70.01191692202929,
+   "image_count": 31
+  },
+  {
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "year": 2022.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.43882307327652087,
+   "green_cover_percent": 82.40448811801608,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "year": 2022.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.49154262506841206,
+   "green_cover_percent": 90.16748583723181,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "year": 2022.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.36143647647514376,
+   "green_cover_percent": 68.35816872016926,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "year": 2022.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.4453372799027717,
+   "green_cover_percent": 81.93594695815341,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "year": 2022.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.32307415648632093,
+   "green_cover_percent": 55.23290691830017,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "year": 2023.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.49595438655437435,
+   "green_cover_percent": 83.77143723156946,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "year": 2023.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.5030460063107945,
+   "green_cover_percent": 91.35067737839103,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "year": 2023.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3550767985569783,
+   "green_cover_percent": 67.89724383768706,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "year": 2023.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.4627305635350676,
+   "green_cover_percent": 80.42921694901094,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "year": 2023.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3292954012768808,
+   "green_cover_percent": 55.170282277023865,
+   "image_count": 27
+  },
+  {
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "year": 2024.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3597796484910819,
+   "green_cover_percent": 68.90332847102503,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "year": 2024.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.39511967169747586,
+   "green_cover_percent": 81.76144700394124,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "year": 2024.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3014009516529516,
+   "green_cover_percent": 60.6078913228183,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "year": 2024.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.36519524885594323,
+   "green_cover_percent": 70.11616053017092,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "year": 2024.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.282288370952267,
+   "green_cover_percent": 48.979360215315275,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z01",
+   "zone_name": "North-West Zone",
+   "year": 2025.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.35510165489514756,
+   "green_cover_percent": 67.85639862628513,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z02",
+   "zone_name": "North-East Zone",
+   "year": 2025.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.45051526202324566,
+   "green_cover_percent": 85.48275136034952,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z03",
+   "zone_name": "Central Zone",
+   "year": 2025.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.28844510173936816,
+   "green_cover_percent": 50.882737340210696,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z04",
+   "zone_name": "South-East Zone",
+   "year": 2025.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.3957076431947035,
+   "green_cover_percent": 69.71488151130895,
+   "image_count": 33
+  },
+  {
+   "zone_id": "Z05",
+   "zone_name": "South-West Zone",
+   "year": 2025.0,
+   "season": "Oct-Dec",
+   "mean_ndvi": 0.31580803075124053,
+   "green_cover_percent": 53.04327382979069,
+   "image_count": 33
+  }
+ ]
+}

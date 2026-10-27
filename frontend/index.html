@@ -3,9 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GreenPulse AI</title>
+    <meta name="description" content="GreenPulse AI: satellite-driven environmental intelligence and explainable zone priorities for the TIET campus, Patiala." />
+    <meta name="theme-color" content="#f5f4ef" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>GreenPulse AI · Environmental Intelligence</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        var preference = "system";
+        try {
+          var stored = window.localStorage.getItem("greenpulse:theme");
+          if (stored === "light" || stored === "dark" || stored === "system") preference = stored;
+        } catch (error) {}
+        var dark = preference === "dark";
+        if (preference === "system") {
+          try {
+            dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          } catch (error) {}
+        }
+        var root = document.documentElement;
+        root.setAttribute("data-theme", dark ? "dark" : "light");
+        root.setAttribute("data-theme-preference", preference);
+        root.style.colorScheme = dark ? "dark" : "light";
+      })();
+    </script>
   </head>
   <body>
+    <noscript>GreenPulse AI needs JavaScript to display the environmental dashboard.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -56,3 +56,12 @@ docs/*.docx
 Thumbs.db
 Desktop.ini
 desktop.ini
+
+# Local review and test artefacts (generated; never commit)
+review-screenshots/
+frontend/playwright-report/
+frontend/test-results/
+frontend/blob-report/
+
+# Local demo/export bundles (not project source)
+demo-output/
